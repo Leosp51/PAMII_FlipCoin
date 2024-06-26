@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMII_FlipCoin.Views.CoinView"
+             Title="CoinView">
+    <VerticalStackLayout
+            Padding="30,0"
+            Spacing="15">
+        <Image
+            x:Name="CoinImg"
+            Source="{Binding Img}"
+            HeightRequest="150"
+            Aspect="AspectFit"
+            SemanticProperties.Description="dot net bot in a race car number eight" />
+
+        <Label
+            x:Name="ResultLabel"
+            Text="{Binding Result}"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1"
+            Margin="50"/>
+
+        <Picker
+            x:Name="CoinFacePicker"
+            Title="Escolha a face"
+            SelectedItem="{Binding Face}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>cara</x:String>
+                    <x:String>coroa</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button
+            x:Name="FlipCoinBtn"
+            Text="Jogar Moeda"
+            Command="{Binding PlayCommand}"/>
+
+    </VerticalStackLayout>
+</ContentPage>
